@@ -14,7 +14,7 @@ export default function ResultsScreen({ resultsData, onRestart }) {
   }, [topStyles]);
 
   const handleShare = () => {
-    exportAndShare('result-capture-area', 'my-leadership-style.png');
+    exportAndShare('result-capture-area', 'my-communication-style.png');
   };
 
   // Format data for Donut Chart
@@ -44,7 +44,7 @@ export default function ResultsScreen({ resultsData, onRestart }) {
         
         {isTie ? (
           <h1 className="text-3xl md:text-4xl font-black text-quiz-text mb-2 text-center">
-            You are a Hybrid Leader
+            You are a Hybrid Communicator
           </h1>
         ) : (
           <h1 className="text-3xl md:text-5xl font-black text-quiz-text mb-2 text-center">

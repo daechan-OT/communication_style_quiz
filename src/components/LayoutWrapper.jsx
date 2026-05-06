@@ -13,7 +13,7 @@ export default function LayoutWrapper({ children }) {
         </div>
       </main>
       {/*<footer className="mt-8 text-xs text-quiz-primary/70 font-medium">
-        Leadership Style Quiz
+        Communication Style Quiz
       </footer>*/}
     </div>
   );

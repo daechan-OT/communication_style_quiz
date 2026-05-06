@@ -1,80 +1,109 @@
-// The Smoothie King Leadership Style Quiz
-// styleId mapping:
-//   teacher    → A answers: direct instruction, technical/procedural approach
-//   role_model → B answers: leads by example, demonstrates the standard
-//   coach      → C answers: asks questions, empowers team to think/solve
-//   supporter  → D answers: emotional check-in, relational/people-first support
+// Communication Style Quiz
+// styleId mapping (matches ./stylesData.js):
+//   direct        → A answers: speed, clarity, decisive action
+//   enthusiastic  → B answers: energy, motivation, positive vibe
+//   collaborative → C answers: care, connection, shared problem-solving
+//   precise       → D answers: accuracy, standards, detail
 
 export const QUESTIONS = [
   {
     id: 'q1',
-    text: 'A new seasonal food item launches today. How do you prepare your team?',
+    text: 'A team member makes a mistake on a complex custom smoothie during a busy rush. What is your first instinct?',
     options: [
-      { id: 'q1-teacher', text: 'I one-on-one with each person at the start of their shift, making sure they\'ve memorized the process, steps, and macros.', styleId: 'teacher' },
-      { id: 'q1-role_model', text: 'I am the first one on the line making the new toast perfectly for guests so the team can watch how I do it.', styleId: 'role_model' },
-      { id: 'q1-coach', text: 'I ask the team, "What do you think will be the trickiest part?" and let them troubleshoot it.', styleId: 'coach' },
-      { id: 'q1-supporter', text: 'I check in to see who feels nervous about the new launch and offer to take the first few orders with them.', styleId: 'supporter' }
+      { id: 'q1-direct',        text: '"Dump it and remake it quickly; let\'s keep the line moving. I\'ll talk to the guest."', styleId: 'direct' },
+      { id: 'q1-enthusiastic',  text: '"Shake it off, it happens! Let\'s crush this remake, you\'ve got this!"', styleId: 'enthusiastic' },
+      { id: 'q1-collaborative', text: '"Are you feeling overwhelmed? Let me step in and help you with this one."', styleId: 'collaborative' },
+      { id: 'q1-precise',       text: '"Let\'s quickly check the recipe card together so we can see exactly where the ratio got thrown off."', styleId: 'precise' }
     ]
   },
   {
     id: 'q2',
-    text: 'It\'s 12:15 PM, the line is to the door, and tickets are backing up at the water station. What is your move?',
+    text: 'You are training a brand-new hire on the register. What do you focus on most during their first hour?',
     options: [
-      { id: 'q2-teacher', text: 'I stand at the hand-off station, making sure every order is blended perfectly to make sure standards don\'t slip.', styleId: 'teacher' },
-      { id: 'q2-role_model', text: 'I jump in to start measuring and scooping to set a high-speed pace for everyone to follow.', styleId: 'role_model' },
-      { id: 'q2-coach', text: 'I observe the bottleneck and ask a senior team member, "How can we shift positions to clear this faster?"', styleId: 'coach' },
-      { id: 'q2-supporter', text: 'I walk the line, give everyone a quick "We\'ve got this," and jump in wherever someone looks most stressed.', styleId: 'supporter' }
+      { id: 'q2-direct',        text: 'Showing them the fastest, most efficient way to punch in orders and modifiers to keep the line short.', styleId: 'direct' },
+      { id: 'q2-enthusiastic',  text: 'Making it a fun, high-energy experience so they feel excited about interacting with our guests.', styleId: 'enthusiastic' },
+      { id: 'q2-collaborative', text: 'Checking in frequently to ensure they feel comfortable, safe, and not stressed by the screen.', styleId: 'collaborative' },
+      { id: 'q2-precise',       text: 'Emphasizing the exact standards for cash handling and how to input complex modifier requests flawlessly.', styleId: 'precise' }
     ]
   },
   {
     id: 'q3',
-    text: 'You notice a team member consistently forgets to wipe down the counters during down-time.',
+    text: 'It is time to hand off the shift to the incoming manager. How do you communicate the store\'s status?',
     options: [
-      { id: 'q3-teacher', text: 'I pull out the cleaning checklist and walk them through the "why" and "how" of each step again.', styleId: 'teacher' },
-      { id: 'q3-role_model', text: 'I start wiping the counters right next to them, making sure they see me doing it.', styleId: 'role_model' },
-      { id: 'q3-coach', text: 'I ask them, "What\'s stopping you from getting to the counters? How can we make it part of your rhythm?"', styleId: 'coach' },
-      { id: 'q3-supporter', text: 'I say, "Hey, I know it\'s been a long shift, but could you help me out by keeping this area clear so we stay on top of things?"', styleId: 'supporter' }
+      { id: 'q3-direct',        text: 'I give a rapid-fire, bullet-point list of what is done and exactly what they need to finish.', styleId: 'direct' },
+      { id: 'q3-enthusiastic',  text: 'I hype them up, tell them how great the day has been, and set a positive vibe for their shift.', styleId: 'enthusiastic' },
+      { id: 'q3-collaborative', text: 'I check in on how they are doing personally and ask if there is anything specific I can do to set them up for success before I leave.', styleId: 'collaborative' },
+      { id: 'q3-precise',       text: 'I walk them through the detailed log of inventory, waste, and exact prep levels left in the walk-in.', styleId: 'precise' }
     ]
   },
   {
     id: 'q4',
-    text: 'A team member wants to become a Team Captain. How do you help them?',
+    text: 'A new seasonal smoothie is launching today. How do you introduce it to your team?',
     options: [
-      { id: 'q4-teacher', text: 'I make them detailed list of responsibilities and milestones they must hit to help prepare them.', styleId: 'teacher' },
-      { id: 'q4-role_model', text: 'I have them shadow me for three shifts so they can see exactly how I handle the store.', styleId: 'role_model' },
-      { id: 'q4-coach', text: 'I give them a small project (like the prep list) and ask them to come to me with their plan for it.', styleId: 'coach' },
-      { id: 'q4-supporter', text: 'I sit down and ask about their career goals, then offer to support them through the transition.', styleId: 'supporter' }
+      { id: 'q4-direct',        text: 'I explain the build order, the prep time, and how it impacts our speed of service.', styleId: 'direct' },
+      { id: 'q4-enthusiastic',  text: 'I focus on how delicious it is, how much the guests are going to love it, and get the team hyped to sell it.', styleId: 'enthusiastic' },
+      { id: 'q4-collaborative', text: 'I let everyone taste it, ask for their thoughts, and make sure everyone is comfortable making it.', styleId: 'collaborative' },
+      { id: 'q4-precise',       text: 'I review the exact nutritional facts, the specific measurement changes, and the allergen protocols.', styleId: 'precise' }
     ]
   },
   {
     id: 'q5',
-    text: 'A guest is unhappy because their smoothie "tastes different than usual" and upset that they are in a hurry.',
+    text: 'A guest looks overwhelmed by the menu and asks for a recommendation. How do you reply?',
     options: [
-      { id: 'q5-teacher', text: 'I quickly double check the prep date on the fruit and the blender settings to make sure everything is working correctly.', styleId: 'teacher' },
-      { id: 'q5-role_model', text: 'I personally step in, apologize, and remake the drink perfectly while the team watches.', styleId: 'role_model' },
-      { id: 'q5-coach', text: 'I let the team member handle it, then ask them afterward, "How do you think that went? What would you do differently next time?"', styleId: 'coach' },
-      { id: 'q5-supporter', text: 'I quickly check with the team member to make sure they are ok, then we handle the guest together.', styleId: 'supporter' }
+      { id: 'q5-direct',        text: 'I ask what their specific goal is (e.g., protein, vegan, low-calorie) and immediately suggest our top seller in that category.', styleId: 'direct' },
+      { id: 'q5-enthusiastic',  text: 'I light up, rave about my absolute personal favorite smoothie, and tell them why it\'s the best thing on the menu.', styleId: 'enthusiastic' },
+      { id: 'q5-collaborative', text: 'I ask them how their day is going and gently guide them toward a smoothie that matches their current mood or craving.', styleId: 'collaborative' },
+      { id: 'q5-precise',       text: 'I ask what ingredients they prefer and detail the specific macros and flavor profiles of two distinct options.', styleId: 'precise' }
     ]
   },
   {
     id: 'q6',
-    text: 'When you want to give a shout-out of appreciation, which sounds most like something you would say?',
+    text: 'You notice the lobby is getting messy, but there is a moderate line at the register. What do you say?',
     options: [
-      { id: 'q6-teacher', text: '"Your accuracy on the inventory count was 100% today. Great job."', styleId: 'teacher' },
-      { id: 'q6-role_model', text: '"I love how you matched my energy during that rush. We crushed it."', styleId: 'role_model' },
-      { id: 'q6-coach', text: '"I noticed you solved that blender issue on your own. You\'re really growing."', styleId: 'coach' },
-      { id: 'q6-supporter', text: '"I\'m so grateful you\'re here today; the team really feels better when you\'re on the shift."', styleId: 'supporter' }
+      { id: 'q6-direct',        text: '"John, the line is manageable. Please go sweep the lobby right now."', styleId: 'direct' },
+      { id: 'q6-enthusiastic',  text: '"Alright team, let\'s do a 60-second blitz and make this lobby sparkle before the next rush!"', styleId: 'enthusiastic' },
+      { id: 'q6-collaborative', text: '"Does anyone have a quick second to grab the lobby, or do we all need to stay on the line?"', styleId: 'collaborative' },
+      { id: 'q6-precise',       text: '"The lobby checklist needs to be completed, starting with wiping the tables and then checking the trash bins."', styleId: 'precise' }
     ]
   },
   {
     id: 'q7',
-    text: 'You\'re short-staffed and everyone is exhausted. How do you make sure the team feels cared for?',
+    text: 'A team member arrives 15 minutes late for their shift. How do you greet them?',
     options: [
-      { id: 'q7-teacher', text: 'I keep everyone focused on the task list so we don\'t fall behind on the "must-dos."', styleId: 'teacher' },
-      { id: 'q7-role_model', text: 'I work the hardest and the longest, showing them that "we don\'t quit."', styleId: 'role_model' },
-      { id: 'q7-coach', text: 'I gather everyone for 30 seconds and ask, "What\'s one thing we can stop doing right now to make this easier?"', styleId: 'coach' },
-      { id: 'q7-supporter', text: 'I make my favorite off-menu smoothie, split it for everyone to try, and tell them I know how hard they are working.', styleId: 'supporter' }
+      { id: 'q7-direct',        text: '"Clock in and jump straight on the blender station; we\'re down a person and tickets are backing up."', styleId: 'direct' },
+      { id: 'q7-enthusiastic',  text: '"Glad you made it! Grab your apron and let\'s get you in the game!"', styleId: 'enthusiastic' },
+      { id: 'q7-collaborative', text: '"Is everything okay? I was getting a little worried about you."', styleId: 'collaborative' },
+      { id: 'q7-precise',       text: '"Please make sure you note the exact time you arrived in the logbook before you wash your hands."', styleId: 'precise' }
     ]
   },
-
+  {
+    id: 'q8',
+    text: 'The blender rinser breaks down in the middle of a busy shift. How do you communicate the plan?',
+    options: [
+      { id: 'q8-direct',        text: 'I quickly dictate a new workflow for manually rinsing pitchers to ensure our ticket times don\'t suffer.', styleId: 'direct' },
+      { id: 'q8-enthusiastic',  text: 'I tell the team, "Plot twist! We\'re doing it old school today, let\'s keep the energy up and power through!"', styleId: 'enthusiastic' },
+      { id: 'q8-collaborative', text: 'I check in with the person on the blender station to make sure they aren\'t getting too frustrated by the bottleneck.', styleId: 'collaborative' },
+      { id: 'q8-precise',       text: 'I pull the maintenance manual to troubleshoot and immediately log a detailed ticket in the system.', styleId: 'precise' }
+    ]
+  },
+  {
+    id: 'q9',
+    text: 'During your pre-shift huddle, what is your primary talking point?',
+    options: [
+      { id: 'q9-direct',        text: 'Hitting today\'s specific sales targets and keeping our labor costs in line.', styleId: 'direct' },
+      { id: 'q9-enthusiastic',  text: 'Getting everyone pumped up, playing some great music, and creating a fantastic atmosphere for the shift.', styleId: 'enthusiastic' },
+      { id: 'q9-collaborative', text: 'Making sure everyone is happy with their assigned stations and feels supported by the team.', styleId: 'collaborative' },
+      { id: 'q9-precise',       text: 'Reminding the team of our core operational standards, like perfect portion control and avoiding cross-contamination.', styleId: 'precise' }
+    ]
+  },
+  {
+    id: 'q10',
+    text: 'You need to give feedback to a team member who is struggling to offer add-ins (upselling). How do you approach it?',
+    options: [
+      { id: 'q10-direct',        text: 'I give them a short, proven script to use with every single guest to keep it simple and effective.', styleId: 'direct' },
+      { id: 'q10-enthusiastic',  text: 'I cheer them on, remind them how great they are at greeting guests, and celebrate loudly the next time they get a "yes."', styleId: 'enthusiastic' },
+      { id: 'q10-collaborative', text: 'I ask them how they feel about upselling and try to understand what makes them uncomfortable about asking guests.', styleId: 'collaborative' },
+      { id: 'q10-precise',       text: 'I show them the exact data on how one extra add-in per transaction affects the store\'s overall metrics and their own performance.', styleId: 'precise' }
+    ]
+  }
 ];

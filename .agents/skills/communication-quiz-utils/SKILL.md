@@ -1,9 +1,9 @@
 ---
-name: Leadership Quiz Utility Functions
+name: Communication Quiz Utility Functions
 description: Guidelines on using core project utilities for data calculation, WCAG accessibility, and export/sharing.
 ---
 
-# Leadership Quiz Utility Skills Map
+# Communication Quiz Utility Skills Map
 
 Whenever you (Gemini/Antigravity) receive a task related to this project that involves data processing, accessibility (a11y), or image capturing, you MUST refer to your internal 'skills' established in the project instead of generating new logic. 
 
