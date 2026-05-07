@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 // Strip the outer card chrome when the quiz is embedded (e.g. inside a Rise 360 iframe)
 // Trigger via ?embed=1 on the URL, or auto-detected when running inside any iframe.
@@ -14,12 +14,25 @@ function isEmbedded() {
 }
 
 export default function LayoutWrapper({ children }) {
-  if (isEmbedded()) {
-    // Narrower max-width (max-w-md ≈ 448px vs default max-w-2xl ≈ 672px) makes
-    // text wrap similarly on mobile and desktop, so content height varies less
-    // across widths and a single iframe height fits both better.
+  const embedded = isEmbedded();
+
+  useEffect(() => {
+    if (embedded) {
+      document.documentElement.classList.add('embed-mode');
+      document.body.classList.add('embed-mode');
+    }
+    return () => {
+      document.documentElement.classList.remove('embed-mode');
+      document.body.classList.remove('embed-mode');
+    };
+  }, [embedded]);
+
+  if (embedded) {
+    // No min-h-screen, no background fill: the wrapper is exactly content
+    // height. Whatever blank space remains in the iframe shows through to
+    // Rise's lesson background instead of a giant cream void.
     return (
-      <div className="bg-quiz-bg text-quiz-text min-h-screen">
+      <div className="text-quiz-text">
         <main className="w-full max-w-md mx-auto px-3 py-4 sm:px-6 sm:py-6">
           <div className="flex flex-col items-center text-center">
             {children}
