@@ -9,3 +9,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* When embedded (?embed=1 OR detected iframe), drop the cream body fill so
+   the iframe is transparent past the content and the host page's background
+   shows through instead of a giant cream void. */
+body.embed-mode {
+  background: transparent;
+}
+html.embed-mode {
+  background: transparent;
+}
