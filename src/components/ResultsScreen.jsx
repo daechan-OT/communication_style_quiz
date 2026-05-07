@@ -97,13 +97,13 @@ export default function ResultsScreen({ resultsData, onRestart }) {
             {[...allScores]
               .sort((a, b) => b.score - a.score)
               .map((style) => (
-                <div key={style.id} className="bg-white p-4 rounded-xl border border-orange-50 shadow-sm">
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="flex items-center gap-2">
+                <div key={style.id} className="bg-white p-4 rounded-xl border border-orange-50 shadow-sm overflow-hidden">
+                  <div className="flex items-center justify-between gap-3 mb-2">
+                    <div className="flex items-center gap-2 min-w-0">
                       <span className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: style.color }} />
-                      <span className="font-semibold text-quiz-text text-xs">{style.name}</span>
+                      <span className="font-semibold text-quiz-text text-xs truncate">{style.name}</span>
                     </div>
-                    <span className="text-xs font-bold text-quiz-text/70 tabular-nums">
+                    <span className="flex-shrink-0 text-xs font-bold text-quiz-text/70 tabular-nums whitespace-nowrap">
                       {style.score} / {style.maxPossible}
                     </span>
                   </div>
@@ -127,14 +127,14 @@ export default function ResultsScreen({ resultsData, onRestart }) {
           {topStyles.map((style) => {
             const scored = allScores.find(s => s.id === style.id);
             return (
-              <div key={style.id} className="bg-white p-6 rounded-2xl shadow-sm border border-orange-50">
-                <div className="flex items-start justify-between gap-4 mb-1">
-                  <h3 className="text-2xl font-bold text-quiz-text flex items-center gap-3">
-                    <span className="w-4 h-4 rounded-full flex-shrink-0" style={{ backgroundColor: style.color }}></span>
-                    {style.name}
+              <div key={style.id} className="bg-white p-5 sm:p-6 rounded-2xl shadow-sm border border-orange-50 overflow-hidden">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-1">
+                  <h3 className="text-xl sm:text-2xl font-bold text-quiz-text flex items-start gap-3 min-w-0 break-words">
+                    <span className="w-4 h-4 mt-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: style.color }}></span>
+                    <span className="min-w-0 break-words">{style.name}</span>
                   </h3>
                   {scored && (
-                    <span className="flex-shrink-0 text-xs font-bold px-3 py-1 rounded-full text-white"
+                    <span className="self-start flex-shrink-0 text-xs font-bold px-3 py-1 rounded-full text-white whitespace-nowrap"
                       style={{ backgroundColor: style.color }}>
                       {scored.score}/{scored.maxPossible} pts
                     </span>
