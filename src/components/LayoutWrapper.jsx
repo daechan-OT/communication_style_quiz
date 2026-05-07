@@ -15,13 +15,13 @@ function isEmbedded() {
 
 export default function LayoutWrapper({ children }) {
   if (isEmbedded()) {
-    // min-h-screen fills the iframe vertically with cream so any empty space
-    // looks intentional. The inner block uses my-auto to center short content
-    // (welcome, early quiz questions) inside the viewport, while taller content
-    // (results) just stacks normally and overflows into the iframe's scroll.
+    // min-h-screen paints cream across the full iframe viewport so empty
+    // space (when iframe is taller than content) doesn't show through as
+    // white. Content stays top-aligned — vertical centering caused visible
+    // bugs when content overflowed the iframe.
     return (
-      <div className="bg-quiz-bg text-quiz-text min-h-screen flex flex-col">
-        <main className="w-full max-w-2xl mx-auto px-3 py-4 sm:px-6 sm:py-6 my-auto">
+      <div className="bg-quiz-bg text-quiz-text min-h-screen">
+        <main className="w-full max-w-2xl mx-auto px-3 py-4 sm:px-6 sm:py-6">
           <div className="flex flex-col items-center text-center">
             {children}
           </div>
