@@ -17,7 +17,7 @@ export default function LayoutWrapper({ children }) {
   if (isEmbedded()) {
     return (
       <div className="bg-quiz-bg text-quiz-text">
-        <main className="w-full max-w-2xl mx-auto px-4 py-6 sm:px-6">
+        <main className="w-full max-w-2xl mx-auto px-3 py-4 sm:px-6 sm:py-6">
           <div className="flex flex-col items-center text-center">
             {children}
           </div>

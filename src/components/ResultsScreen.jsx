@@ -32,7 +32,7 @@ export default function ResultsScreen({ resultsData, onRestart }) {
     <div className="w-full animate-fade-in flex flex-col items-center">
       
       {/* CAPTURE AREA */}
-      <div id="result-capture-area" className="w-full flex flex-col items-center bg-quiz-bg p-4 md:p-6 sm:-mx-6 rounded-2xl">
+      <div id="result-capture-area" className="w-full flex flex-col items-center bg-quiz-bg p-2 sm:p-4 md:p-6 rounded-2xl">
         <img 
           src={logo} 
           alt="Smoothie King Logo" 
@@ -97,13 +97,13 @@ export default function ResultsScreen({ resultsData, onRestart }) {
             {[...allScores]
               .sort((a, b) => b.score - a.score)
               .map((style) => (
-                <div key={style.id} className="bg-white p-4 rounded-xl border border-orange-50 shadow-sm">
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="flex items-center gap-2">
+                <div key={style.id} className="bg-white p-2.5 sm:p-4 rounded-xl border border-orange-50 shadow-sm overflow-hidden">
+                  <div className="flex items-center justify-between gap-3 mb-2">
+                    <div className="flex items-center gap-2 min-w-0">
                       <span className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: style.color }} />
-                      <span className="font-semibold text-quiz-text text-xs">{style.name}</span>
+                      <span className="font-semibold text-quiz-text text-xs truncate">{style.name}</span>
                     </div>
-                    <span className="text-xs font-bold text-quiz-text/70 tabular-nums">
+                    <span className="flex-shrink-0 text-xs font-bold text-quiz-text/70 tabular-nums whitespace-nowrap">
                       {style.score} / {style.maxPossible}
                     </span>
                   </div>
@@ -123,18 +123,18 @@ export default function ResultsScreen({ resultsData, onRestart }) {
         </div>
 
         {/* STYLE DESCRIPTIONS */}
-        <div className="w-full flex flex-col gap-6 mt-6 text-left">
+        <div className="w-full flex flex-col gap-3 sm:gap-6 mt-4 sm:mt-6 text-left">
           {topStyles.map((style) => {
             const scored = allScores.find(s => s.id === style.id);
             return (
-              <div key={style.id} className="bg-white p-6 rounded-2xl shadow-sm border border-orange-50">
-                <div className="flex items-start justify-between gap-4 mb-1">
-                  <h3 className="text-2xl font-bold text-quiz-text flex items-center gap-3">
-                    <span className="w-4 h-4 rounded-full flex-shrink-0" style={{ backgroundColor: style.color }}></span>
-                    {style.name}
+              <div key={style.id} className="bg-white p-3 sm:p-6 rounded-2xl shadow-sm border border-orange-50 overflow-hidden">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-1">
+                  <h3 className="text-xl sm:text-2xl font-bold text-quiz-text flex items-start gap-3 min-w-0 break-words">
+                    <span className="w-4 h-4 mt-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: style.color }}></span>
+                    <span className="min-w-0 break-words">{style.name}</span>
                   </h3>
                   {scored && (
-                    <span className="flex-shrink-0 text-xs font-bold px-3 py-1 rounded-full text-white"
+                    <span className="self-start flex-shrink-0 text-xs font-bold px-3 py-1 rounded-full text-white whitespace-nowrap"
                       style={{ backgroundColor: style.color }}>
                       {scored.score}/{scored.maxPossible} pts
                     </span>
@@ -149,14 +149,14 @@ export default function ResultsScreen({ resultsData, onRestart }) {
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
-                  <div className="bg-green-50/50 p-4 rounded-xl border border-green-100">
+                  <div className="bg-green-50/50 p-3 sm:p-4 rounded-xl border border-green-100">
                     <strong className="block text-green-800 mb-2 text-xs uppercase">Strengths</strong>
                     <ul className="list-disc pl-5 text-xs text-quiz-text/80 space-y-1">
                       {style.strengths.map((str, i) => <li key={i}>{str}</li>)}
                     </ul>
                   </div>
 
-                  <div className="bg-red-50/50 p-4 rounded-xl border border-red-100">
+                  <div className="bg-red-50/50 p-3 sm:p-4 rounded-xl border border-red-100">
                     <strong className="block text-quiz-primary mb-2 text-xs uppercase">Blind Spots</strong>
                     <ul className="list-disc pl-5 text-xs text-quiz-text/80 space-y-1">
                       {style.blindSpots.map((bs, i) => <li key={i}>{bs}</li>)}
@@ -170,7 +170,7 @@ export default function ResultsScreen({ resultsData, onRestart }) {
       </div>
 
       {/* ACTION BUTTONS (Outside Capture Area) */}
-      <div className="w-full flex flex-col sm:flex-row gap-4 justify-center mt-10">
+      <div className="w-full flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mt-6 sm:mt-10">
         <button
           onClick={handleShare}
           className="flex-1 max-w-xs min-h-[44px] flex items-center justify-center gap-2 px-6 py-4 bg-quiz-primary text-[#FFF9EF] rounded-xl font-bold text-base hover:bg-[#7a0014] focus:outline-none focus:ring-4 focus:ring-quiz-primary/50 transition-all shadow-md active:scale-95"
