@@ -15,13 +15,12 @@ function isEmbedded() {
 
 export default function LayoutWrapper({ children }) {
   if (isEmbedded()) {
-    // min-h-screen paints cream across the full iframe viewport so empty
-    // space (when iframe is taller than content) doesn't show through as
-    // white. Content stays top-aligned — vertical centering caused visible
-    // bugs when content overflowed the iframe.
+    // Narrower max-width (max-w-md ≈ 448px vs default max-w-2xl ≈ 672px) makes
+    // text wrap similarly on mobile and desktop, so content height varies less
+    // across widths and a single iframe height fits both better.
     return (
       <div className="bg-quiz-bg text-quiz-text min-h-screen">
-        <main className="w-full max-w-2xl mx-auto px-3 py-4 sm:px-6 sm:py-6">
+        <main className="w-full max-w-md mx-auto px-3 py-4 sm:px-6 sm:py-6">
           <div className="flex flex-col items-center text-center">
             {children}
           </div>
