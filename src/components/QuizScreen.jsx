@@ -66,17 +66,17 @@ export default function QuizScreen({ onComplete }) {
 
   return (
     <div className="w-full flex flex-col items-center animate-fade-in text-left">
-      <img src={logo} alt="Smoothie King Logo" className="h-8 md:h-10 w-auto mb-8 animate-fade-in mx-auto" />
+      <img src={logo} alt="Smoothie King Logo" className="h-7 md:h-10 w-auto mb-4 sm:mb-8 animate-fade-in mx-auto" />
       <ProgressBar current={currentQuestionIndex + 1} total={shuffledQuestions.length} />
 
       <h2
-        className="text-2xl md:text-3xl font-bold text-quiz-text w-full mb-8 leading-snug"
+        className="text-xl sm:text-2xl md:text-3xl font-bold text-quiz-text w-full mb-4 sm:mb-8 leading-snug"
         aria-live="polite"
       >
         {currentQuestion.text}
       </h2>
 
-      <div className="w-full flex flex-col gap-4">
+      <div className="w-full flex flex-col gap-2 sm:gap-4">
         {currentQuestion.options.map((option, idx) => {
           const isSelected = selectedAnswer === option.styleId;
           return (
@@ -86,7 +86,7 @@ export default function QuizScreen({ onComplete }) {
               tabIndex={0}
               onClick={() => handleOptionSelect(option.styleId)}
               onKeyDown={(e) => handleKeyDown(e, option.styleId)}
-              className={`w-full min-h-[44px] p-5 rounded-xl border-2 transition-all cursor-pointer shadow-sm
+              className={`w-full min-h-[44px] p-3 sm:p-5 rounded-xl border-2 transition-all cursor-pointer shadow-sm
                 ${isSelected
                   ? 'border-quiz-primary bg-[#fff5e6] shadow-md ring-2 ring-quiz-primary/30'
                   : 'border-orange-100 bg-white hover:border-quiz-primary hover:bg-[#fff5e6] hover:shadow'
@@ -115,7 +115,7 @@ export default function QuizScreen({ onComplete }) {
       <button
         onClick={handleContinue}
         disabled={!selectedAnswer}
-        className={`w-full mt-10 py-5 px-6 rounded-xl font-bold text-white transition-all duration-300 shadow-lg scale-[1.00] active:scale-95
+        className={`w-full mt-6 sm:mt-10 py-4 px-5 sm:py-5 sm:px-6 rounded-xl font-bold text-white transition-all duration-300 shadow-lg scale-[1.00] active:scale-95
           ${selectedAnswer 
             ? 'bg-quiz-primary hover:bg-red-800' 
             : 'bg-gray-300 cursor-not-allowed opacity-50 grayscale shadow-none hover:bg-gray-300'
