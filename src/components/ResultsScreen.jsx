@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo } from 'react';
-import logo from '../assets/logo.png';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 import { Share2, RotateCcw } from 'lucide-react';
 import { exportAndShare } from '../skills/exportAndShare';
@@ -33,21 +32,16 @@ export default function ResultsScreen({ resultsData, onRestart }) {
       
       {/* CAPTURE AREA */}
       <div id="result-capture-area" className="w-full flex flex-col items-center bg-quiz-bg p-2 sm:p-4 md:p-6 rounded-2xl">
-        <img 
-          src={logo} 
-          alt="Smoothie King Logo" 
-          className="h-6 md:h-8 w-auto mb-6"
-        />
         <h2 className="text-xs font-extrabold text-quiz-primary uppercase tracking-widest mb-2">
           Your Results
         </h2>
-        
+
         {isTie ? (
-          <h1 className="text-3xl md:text-4xl font-black text-quiz-text mb-2 text-center">
+          <h1 className="font-heading text-3xl md:text-4xl font-black text-quiz-text mb-2 text-center">
             You are a Hybrid Communicator
           </h1>
         ) : (
-          <h1 className="text-3xl md:text-5xl font-black text-quiz-text mb-2 text-center">
+          <h1 className="font-heading text-3xl md:text-5xl font-black text-quiz-text mb-2 text-center">
             {topStyles[0].name}
           </h1>
         )}

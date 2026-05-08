@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import ProgressBar from './ProgressBar';
 import { QUESTIONS } from '../data/questionsData';
 import { announceToScreenReader } from '../skills/a11yUtils';
-import logo from '../assets/logo.png';
 
 // Fisher-Yates shuffle — returns a new shuffled array, never mutates the original
 function shuffleArray(arr) {
@@ -66,11 +65,10 @@ export default function QuizScreen({ onComplete }) {
 
   return (
     <div className="w-full flex flex-col items-center animate-fade-in text-left">
-      <img src={logo} alt="Smoothie King Logo" className="h-7 md:h-10 w-auto mb-4 sm:mb-8 animate-fade-in mx-auto" />
       <ProgressBar current={currentQuestionIndex + 1} total={shuffledQuestions.length} />
 
       <h2
-        className="text-xl sm:text-2xl md:text-3xl font-bold text-quiz-text w-full mb-4 sm:mb-8 leading-snug"
+        className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-quiz-text w-full mb-4 sm:mb-8 leading-snug"
         aria-live="polite"
       >
         {currentQuestion.text}
