@@ -97,18 +97,7 @@ export default function QuizScreen({ onComplete }) {
               aria-label={`Option ${idx + 1}: ${option.text}`}
               aria-pressed={isSelected}
             >
-              <div className="flex items-center gap-3">
-                {/* Selection indicator dot */}
-                <span
-                  className={`flex-shrink-0 w-5 h-5 rounded-full border-2 transition-all
-                    ${isSelected
-                      ? 'border-quiz-primary bg-quiz-primary'
-                      : 'border-orange-200 bg-transparent'
-                    }`}
-                  aria-hidden="true"
-                />
-                <span className="text-base font-medium text-quiz-text">{option.text}</span>
-              </div>
+              <span className="text-base font-medium text-quiz-text">{option.text}</span>
             </div>
           );
         })}

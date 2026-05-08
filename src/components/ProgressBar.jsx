@@ -11,10 +11,12 @@ export default function ProgressBar({ current, total }) {
         <span className="text-xs font-bold text-quiz-primary uppercase tracking-wider">
           Question {current} of {total}
         </span>
-        <span className="text-xs font-semibold text-quiz-text/60">{percentage}%</span>
+        {/* Percentage hidden on small (mobile) screens, visible from sm breakpoint up */}
+        <span className="hidden sm:inline text-xs font-semibold text-quiz-text/60">{percentage}%</span>
       </div>
-      <div className="h-2.5 w-full bg-orange-100 rounded-full overflow-hidden">
-        <div 
+      {/* Progress bar visual hidden on small screens */}
+      <div className="hidden sm:block h-2.5 w-full bg-orange-100 rounded-full overflow-hidden">
+        <div
           className="h-full bg-quiz-primary rounded-full transition-all duration-500 ease-out"
           style={{ width: `${percentage}%` }}
         />
