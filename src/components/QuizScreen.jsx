@@ -65,12 +65,12 @@ export default function QuizScreen({ onComplete }) {
     }
   };
 
-  // When embedded, fix the screen height to the iframe viewport (min-h-screen)
-  // and use justify-around so spacing between progress / question / options /
-  // button absorbs content variance, keeping the layout stable across
-  // questions of different lengths.
+  // When embedded, lock the screen to a fixed pixel height (not min-h-screen,
+  // which is viewport-relative and would collapse gaps on shorter viewports).
+  // 1000px is the design target. justify-around distributes the same amount
+  // of space across progress / question / options / button on every device.
   return (
-    <div className={`w-full flex flex-col items-center animate-fade-in text-left ${embedded ? 'min-h-screen justify-around py-2' : ''}`}>
+    <div className={`w-full flex flex-col items-center animate-fade-in text-left ${embedded ? 'min-h-[1000px] justify-around py-2' : ''}`}>
       <ProgressBar current={currentQuestionIndex + 1} total={shuffledQuestions.length} />
 
       <h2
