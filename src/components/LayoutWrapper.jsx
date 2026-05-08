@@ -1,17 +1,5 @@
 import React, { useEffect } from 'react';
-
-// Strip the outer card chrome when the quiz is embedded (e.g. inside a Rise 360 iframe)
-// Trigger via ?embed=1 on the URL, or auto-detected when running inside any iframe.
-function isEmbedded() {
-  if (typeof window === 'undefined') return false;
-  const params = new URLSearchParams(window.location.search);
-  if (params.get('embed') === '1') return true;
-  try {
-    return window.self !== window.top;
-  } catch {
-    return true;
-  }
-}
+import { isEmbedded } from '../skills/embed';
 
 export default function LayoutWrapper({ children }) {
   const embedded = isEmbedded();
