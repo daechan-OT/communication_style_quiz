@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ProgressBar from './ProgressBar';
 import { QUESTIONS } from '../data/questionsData';
 import { announceToScreenReader } from '../skills/a11yUtils';
+import { isEmbedded } from '../skills/embed';
 
 // Fisher-Yates shuffle — returns a new shuffled array, never mutates the original
 function shuffleArray(arr) {
@@ -14,6 +15,7 @@ function shuffleArray(arr) {
 }
 
 export default function QuizScreen({ onComplete }) {
+  const embedded = isEmbedded();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
   // Shuffle question order AND option order within each question once on mount.
@@ -63,12 +65,16 @@ export default function QuizScreen({ onComplete }) {
     }
   };
 
+  // When embedded, fix the screen height to the iframe viewport (min-h-screen)
+  // and use justify-around so spacing between progress / question / options /
+  // button absorbs content variance, keeping the layout stable across
+  // questions of different lengths.
   return (
-    <div className="w-full flex flex-col items-center animate-fade-in text-left">
+    <div className={`w-full flex flex-col items-center animate-fade-in text-left ${embedded ? 'min-h-screen justify-around py-2' : ''}`}>
       <ProgressBar current={currentQuestionIndex + 1} total={shuffledQuestions.length} />
 
       <h2
-        className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-quiz-text w-full mb-4 sm:mb-8 leading-snug"
+        className={`font-heading text-xl sm:text-2xl md:text-3xl font-bold text-quiz-text w-full leading-snug ${embedded ? '' : 'mb-4 sm:mb-8'}`}
         aria-live="polite"
       >
         {currentQuestion.text}
@@ -108,14 +114,15 @@ export default function QuizScreen({ onComplete }) {
           );
         })}
       </div>
-      
+
       {/* Continue button — only active when a selection is made */}
       <button
         onClick={handleContinue}
         disabled={!selectedAnswer}
-        className={`w-full mt-6 sm:mt-10 py-4 px-5 sm:py-5 sm:px-6 rounded-xl font-bold text-white transition-all duration-300 shadow-lg scale-[1.00] active:scale-95
-          ${selectedAnswer 
-            ? 'bg-quiz-primary hover:bg-red-800' 
+        className={`w-full py-4 px-5 sm:py-5 sm:px-6 rounded-xl font-bold text-white transition-all duration-300 shadow-lg scale-[1.00] active:scale-95
+          ${embedded ? '' : 'mt-6 sm:mt-10'}
+          ${selectedAnswer
+            ? 'bg-quiz-primary hover:bg-red-800'
             : 'bg-gray-300 cursor-not-allowed opacity-50 grayscale shadow-none hover:bg-gray-300'
           }`}
       >
@@ -128,7 +135,7 @@ export default function QuizScreen({ onComplete }) {
       {currentQuestionIndex > 0 && (
         <button
           onClick={handleGoBack}
-          className="mt-8 flex items-center gap-2 text-xs text-quiz-primary hover:text-orange-700 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-quiz-primary/40 rounded-lg px-3 py-2 hover:bg-orange-50"
+          className={`flex items-center gap-2 text-xs text-quiz-primary hover:text-orange-700 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-quiz-primary/40 rounded-lg px-3 py-2 hover:bg-orange-50 ${embedded ? '' : 'mt-8'}`}
           aria-label="Go back to the previous question"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
