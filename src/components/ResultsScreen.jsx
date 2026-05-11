@@ -36,7 +36,7 @@ export default function ResultsScreen({ resultsData, onRestart }) {
     <div className="w-full animate-fade-in flex flex-col items-center">
       
       {/* CAPTURE AREA */}
-      <div id="result-capture-area" className="w-full flex flex-col items-center bg-quiz-bg p-2 sm:p-4 md:p-6 rounded-2xl">
+      <div id="result-capture-area" className="w-full flex flex-col items-center p-2 sm:p-4 md:p-6 rounded-2xl">
         <h2 className="text-xs font-extrabold text-quiz-primary uppercase tracking-widest mb-2">
           Your Results
         </h2>
