@@ -1,11 +1,16 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
-import { Share2, RotateCcw } from 'lucide-react';
+import { Share2, RotateCcw, ChevronDown } from 'lucide-react';
 import { exportAndShare } from '../skills/exportAndShare';
 import { announceToScreenReader } from '../skills/a11yUtils';
 
 export default function ResultsScreen({ resultsData, onRestart }) {
   const { allScores, topStyles } = resultsData;
+  const [expandedStyleIds, setExpandedStyleIds] = useState({});
+
+  const toggleExpanded = (styleId) => {
+    setExpandedStyleIds((prev) => ({ ...prev, [styleId]: !prev[styleId] }));
+  };
 
   useEffect(() => {
     const styleNames = topStyles.map(s => s.name).join(' and ');
@@ -31,7 +36,7 @@ export default function ResultsScreen({ resultsData, onRestart }) {
     <div className="w-full animate-fade-in flex flex-col items-center">
       
       {/* CAPTURE AREA */}
-      <div id="result-capture-area" className="w-full flex flex-col items-center bg-quiz-bg p-2 sm:p-4 md:p-6 rounded-2xl">
+      <div id="result-capture-area" className="w-full flex flex-col items-center p-2 sm:p-4 md:p-6 rounded-2xl">
         <h2 className="text-xs font-extrabold text-quiz-primary uppercase tracking-widest mb-2">
           Your Results
         </h2>
@@ -82,40 +87,6 @@ export default function ResultsScreen({ resultsData, onRestart }) {
           </ResponsiveContainer>
         </div>
 
-        {/* SCORE BREAKDOWN — all 4 styles ranked */}
-        <div className="w-full mt-6 text-left">
-          <h3 className="text-xs font-extrabold text-quiz-primary uppercase tracking-widest mb-4">
-            Score Breakdown
-          </h3>
-          <div className="flex flex-col gap-3">
-            {[...allScores]
-              .sort((a, b) => b.score - a.score)
-              .map((style) => (
-                <div key={style.id} className="bg-white p-2.5 sm:p-4 rounded-xl border border-orange-50 shadow-sm overflow-hidden">
-                  <div className="flex items-center justify-between gap-3 mb-2">
-                    <div className="flex items-center gap-2 min-w-0">
-                      <span className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: style.color }} />
-                      <span className="font-semibold text-quiz-text text-xs truncate">{style.name}</span>
-                    </div>
-                    <span className="flex-shrink-0 text-xs font-bold text-quiz-text/70 tabular-nums whitespace-nowrap">
-                      {style.score} / {style.maxPossible}
-                    </span>
-                  </div>
-                  {/* Animated progress bar */}
-                  <div className="w-full h-2.5 bg-orange-50 rounded-full overflow-hidden">
-                    <div
-                      className="h-full rounded-full transition-all duration-700 ease-out"
-                      style={{
-                        width: `${style.percentage}%`,
-                        backgroundColor: style.color
-                      }}
-                    />
-                  </div>
-                </div>
-              ))}
-          </div>
-        </div>
-
         {/* STYLE DESCRIPTIONS */}
         <div className="w-full flex flex-col gap-3 sm:gap-6 mt-4 sm:mt-6 text-left">
           {topStyles.map((style) => {
@@ -157,6 +128,58 @@ export default function ResultsScreen({ resultsData, onRestart }) {
                     </ul>
                   </div>
                 </div>
+
+                {/* FULL DESCRIPTION ACCORDION */}
+                {(style.strengthsDetailed?.length || style.blindSpotsDetailed?.length) && (() => {
+                  const isOpen = !!expandedStyleIds[style.id];
+                  const panelId = `style-details-${style.id}`;
+                  return (
+                    <div className="mt-4 border-t border-orange-100 pt-3">
+                      <button
+                        type="button"
+                        onClick={() => toggleExpanded(style.id)}
+                        aria-expanded={isOpen}
+                        aria-controls={panelId}
+                        className="w-full flex items-center justify-between gap-2 text-left text-sm font-bold text-quiz-primary hover:text-[#7a0014] focus:outline-none focus:ring-2 focus:ring-quiz-primary/40 rounded-md px-1 py-1 transition-colors"
+                      >
+                        <span>{isOpen ? 'Hide full description' : 'Show full description'}</span>
+                        <ChevronDown
+                          size={18}
+                          className={`flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+                          aria-hidden="true"
+                        />
+                      </button>
+
+                      {isOpen && (
+                        <div id={panelId} className="mt-4 grid md:grid-cols-2 gap-4 animate-fade-in">
+                          <div className="bg-green-50/50 p-3 sm:p-4 rounded-xl border border-green-100">
+                            <strong className="block text-green-800 mb-3 text-xs uppercase">Where You Might Shine</strong>
+                            <ul className="space-y-3 text-xs text-quiz-text/85">
+                              {style.strengthsDetailed.map((item, i) => (
+                                <li key={i}>
+                                  <p className="font-bold text-quiz-text mb-1">{item.title}</p>
+                                  <p className="leading-relaxed">{item.description}</p>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+
+                          <div className="bg-red-50/50 p-3 sm:p-4 rounded-xl border border-red-100">
+                            <strong className="block text-quiz-primary mb-3 text-xs uppercase">Where You Might Struggle</strong>
+                            <ul className="space-y-3 text-xs text-quiz-text/85">
+                              {style.blindSpotsDetailed.map((item, i) => (
+                                <li key={i}>
+                                  <p className="font-bold text-quiz-text mb-1">{item.title}</p>
+                                  <p className="leading-relaxed">{item.description}</p>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })()}
               </div>
             );
           })}
