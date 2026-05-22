@@ -40,7 +40,7 @@ export const QUESTIONS = [
     id: 'q4',
     text: 'A new seasonal smoothie starts today. What sounds most like you?',
     options: [
-      { id: 'q4-direct',        text: '"New smoothie today. Watch your build order and keep tickets under three minutes."', styleId: 'direct' },
+      { id: 'q4-direct',        text: '"New smoothie today. Watch your build order and keep tickets under three minutes and thirty seconds."', styleId: 'direct' },
       { id: 'q4-enthusiastic',  text: '"This flavor is a game-changer! Taste it so you can get the guests hyped about it."', styleId: 'enthusiastic' },
       { id: 'q4-collaborative', text: '"We have a new launch. I want to hear what you guys think of the flavor profile."', styleId: 'collaborative' },
       { id: 'q4-precise',       text: '"This one has more ingredients than some of our smoothies, so follow the ticket exactly."', styleId: 'precise' }

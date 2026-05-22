@@ -8,154 +8,159 @@ export const STYLE_COLORS = {
 
 // The 4 Communication Styles
 // Question option `styleId`s in ./questionsData.js MUST match an `id` here.
+// - `priority` / `mantra`: shown together on the results screen as "Priority: X | Mantra: Y"
 // - `strengths` / `blindSpots`: short, at-a-glance bullets shown by default
 // - `strengthsDetailed` / `blindSpotsDetailed`: full titled descriptions
 //   revealed inside the "Show full description" accordion on the results screen
 export const STYLES = [
   {
     id: 'direct',
-    name: 'The Just the Facts Communicator',
+    name: 'The Direct Communicator',
     subtitle: 'Direct',
-    focus: 'Efficiency-driven. You communicate to get to the next task as fast as possible.',
-    strengths: ['Cuts through noise', 'Drives quick decisions', 'Keeps the line moving'],
-    blindSpots: ['Can feel blunt or cold', 'Skips the "why"', 'Misses emotional cues'],
+    priority: 'efficiency',
+    mantra: 'clear is efficient',
+    strengths: ['The anchor in the rush', 'Decisive problem solving', 'Protecting labor and speed'],
+    blindSpots: ['The robot vibe', 'Leaving out the why', 'The accidental snap'],
     strengthsDetailed: [
       {
-        title: 'The High-Pressure Rush',
-        description: 'When the water station is full of tickets, your "Bullet-Point" speech keeps the team moving. You don\'t clutter the airwaves with unnecessary talk, allowing the crew to stay focused on the hustle.'
+        title: 'The anchor in the rush',
+        description: 'When the tickets are printing fast and the lobby is full, you\'re the one who keeps the team from sinking. You don\'t clutter the airwaves; you give the fast, clear decisions the team needs.'
       },
       {
-        title: 'Decisive Problem Solving',
-        description: 'If a blender breaks or a guest has a complex issue, you provide an immediate, clear solution. Your team never has to guess what you want them to do next.'
+        title: 'Decisive problem solving',
+        description: 'If a blender breaks or a guest is upset, you don\'t over-analyze. You provide an immediate solution so the team never has to guess what the next move is.'
       },
       {
-        title: 'Efficiency Gains',
-        description: 'You are a master of the "Short-Cut" that doesn\'t sacrifice quality. You communicate exactly how to shave seconds off a ticket time, which helps the store hit its labor and speed goals.'
+        title: 'Protecting labor and speed',
+        description: 'You\'re a master at shaving seconds off ticket times. You communicate exactly how to be faster, helping the team hit its goals without sacrificing quality.'
       }
     ],
     blindSpotsDetailed: [
       {
-        title: 'The "Robot" Vibe',
-        description: 'By skipping the "warm-up" conversation, you might come across as cold. Your team might feel like they are just "labor units" rather than people you care about.'
+        title: 'The robot vibe',
+        description: 'By skipping the warm-up talk, you can come across as cold. Your team might feel like they\'re just labor units on a spreadsheet rather than people you care about.'
       },
       {
-        title: 'Leaving Out the "Why"',
-        description: 'Because you value brevity, you might tell a teammate what to do but not why it matters. Without the "Why," the team loses their connection to the guest\'s goal.'
+        title: 'Leaving out the why',
+        description: 'Because you value brevity, you might give a task without the reason. Without the why, the team loses their connection to our mission and the guest\'s experience.'
       },
       {
-        title: 'Intimidating Tone',
-        description: 'Your directness can be misread as anger. "Kindness" communicators on your team might feel "snapped at" even when you are just trying to be efficient.'
+        title: 'The accidental snap',
+        description: 'Your directness can be misread as anger. More collaborative team members might feel snapped at even when you\'re just trying to be efficient.'
       }
     ],
     color: STYLE_COLORS.direct
   },
   {
     id: 'enthusiastic',
-    name: 'The Cheerleader Communicator',
+    name: 'The Enthusiastic Communicator',
     subtitle: 'Enthusiastic',
-    focus: 'Engagement-driven. You communicate to build energy and excitement.',
-    strengths: ['Lifts team morale', 'Creates a great guest vibe', 'Turns hard shifts fun'],
-    blindSpots: ['Glosses over real issues', 'Hype can mask stress', 'Light on specifics'],
+    priority: 'engagement',
+    mantra: 'energy is contagious',
+    strengths: ['The heartbeat of the team', 'Legendary guest connections', 'Recharging the team'],
+    blindSpots: ['Burying the lead', 'Dismissing the details', 'Ignoring the low battery'],
     strengthsDetailed: [
       {
-        title: 'The Vibe Architect',
-        description: 'You are the primary source of energy in the store. Your engaging speech and non-verbal cues make the shift feel like a team sport rather than a job.'
+        title: 'The heartbeat of the team',
+        description: 'You are the source of energy. Your big smiles and high-fives make a shift feel like a team sport rather than a job.'
       },
       {
-        title: 'Legendary Guest Connections',
-        description: 'You are a natural at engaging the community. You communicate with guests in a way that makes them feel seen and excited to come back.'
+        title: 'Legendary guest connections',
+        description: 'You don\'t just take orders; you engage. You make guests feel seen and excited to come back, which is the secret sauce for building a loyal community.'
       },
       {
-        title: 'Motivating Through Stress',
-        description: 'When the team is tired, your mantra of contagious energy can recharge their batteries and get them through a difficult closing shift.'
+        title: 'Recharging the team',
+        description: 'When everyone is dragging during a tough closing shift, your energy is what gets them across the finish line. You know how to pull people out of a slump.'
       }
     ],
     blindSpotsDetailed: [
       {
-        title: 'Burying the Lead',
-        description: 'You might get so caught up in the good vibes that the actual instruction gets lost. A teammate might leave a conversation feeling "pumped up" but unsure of exactly which prep task to start.'
+        title: 'Burying the lead',
+        description: 'Sometimes the hype hides the instruction. A team member might leave a huddle feeling pumped but have no idea which prep task they\'re actually supposed to start.'
       },
       {
-        title: 'Dismissing the Details',
-        description: 'Detailed Standards communicators might feel you are all talk. If you gloss over the technical facts to keep the energy high, your more precise teammates may lose trust in your directions.'
+        title: 'Dismissing the details',
+        description: 'Precise communicators might feel you\'re all talk. If you gloss over the technical facts to keep the energy high, your more detail-oriented teammates might lose trust in your leadership.'
       },
       {
-        title: 'Ignoring the "Low Battery"',
-        description: 'You might try to cheerlead a teammate who is actually burnt out or struggling, making them feel misunderstood rather than supported.'
+        title: 'Ignoring the low battery',
+        description: 'You might try to cheerlead a teammate who is actually burnt out or struggling. In those moments, they need you to hear them, not just hype them.'
       }
     ],
     color: STYLE_COLORS.enthusiastic
   },
   {
     id: 'collaborative',
-    name: 'The Kindness Communicator',
+    name: 'The Collaborative Communicator',
     subtitle: 'Collaborative',
-    focus: 'Connection-driven. You communicate to ensure everyone feels heard and safe.',
-    strengths: ['Builds psychological safety', 'High team trust', 'Reads emotions well'],
-    blindSpots: ['Can avoid hard conversations', 'Slower to direct', 'Decisions feel by-committee'],
+    priority: 'connection',
+    mantra: 'lead by listening',
+    strengths: ['The safe harbor', 'De-escalating conflict', 'Building loyalty'],
+    blindSpots: ['The soft signal', 'Avoiding hard conversations', 'Slowing down the rush'],
     strengthsDetailed: [
       {
-        title: 'The Secure Base',
-        description: 'You are an incredible listener. Your team feels safe coming to you with problems because they know you won\'t judge them or bark at them.'
+        title: 'The safe harbor',
+        description: 'You are an incredible listener. Your team feels safe coming to you with mistakes or personal problems because they know you\'ll react with empathy, not a lecture.'
       },
       {
-        title: 'Conflict Resolution',
-        description: 'You excel at managing guest conflicts because you naturally use "Question" speech to understand the guest\'s frustration before trying to solve it.'
+        title: 'De-escalating conflict',
+        description: 'You excel at handling guest complaints. You naturally ask questions to understand their frustration before trying to solve it, which makes the guest feel respected.'
       },
       {
-        title: 'Team Retention',
-        description: 'People stay at your store because they feel valued as individuals. You naturally provide words of appreciation on the small moments that make the team feel cared for.'
+        title: 'Building loyalty',
+        description: 'People stay with you because they feel valued. You lead with praise and catch the small wins that others miss, making your team feel like a family.'
       }
     ],
     blindSpotsDetailed: [
       {
-        title: 'The "Soft Signal"',
-        description: 'Your instructions can sound like suggestions. A "Just the Facts" teammate might not realize that "I was thinking maybe we could sweep the lobby" actually means "The lobby is dirty; sweep it now."'
+        title: 'The soft signal',
+        description: 'Your instructions can sound like suggestions. A direct teammate might not realize that "I was thinking we should sweep the lobby" actually means "The lobby is dirty; please sweep it now."'
       },
       {
-        title: 'Avoiding the "Critical Conversation"',
-        description: 'Because you value harmony, you might hesitate to give a nudge or corrective feedback, allowing a toxic behavior or a missed standard to continue for too long.'
+        title: 'Avoiding hard conversations',
+        description: 'Because you value harmony, you might hesitate to give a nudge or corrective feedback. Not being clear is unkind, it allows a missed standard to become a bad habit.'
       },
       {
-        title: 'Wasting Time in the Rush',
-        description: 'During a high-volume hour, your desire to ensure everyone is "okay" can slow down the operation. Sometimes the team needs a command, not a conversation.'
+        title: 'Slowing down the rush',
+        description: 'During a peak hour, your desire to check in on everyone can actually slow the operation down. Sometimes the team just needs a command, not a conversation.'
       }
     ],
     color: STYLE_COLORS.collaborative
   },
   {
     id: 'precise',
-    name: 'The Detailed Standards Communicator',
+    name: 'The Precise Communicator',
     subtitle: 'Precise',
-    focus: 'Accuracy-driven. You communicate to ensure the standard is met perfectly.',
-    strengths: ['Protects quality and compliance', 'Catches small errors early', 'Keeps records airtight'],
-    blindSpots: ['Can over-explain', 'Slows in fast-moving moments', 'May feel rigid to teammates'],
+    priority: 'accuracy',
+    mantra: 'the details matter',
+    strengths: ['The guardian of the standard', 'Training mastery', 'Integrity of the blend'],
+    blindSpots: ['The over-communication trap', 'The nagging label', 'Telling over showing'],
     strengthsDetailed: [
       {
-        title: 'The Error-Free Open',
-        description: 'Your prep lists are perfect, and your team knows exactly how to make every item. You ensure fewer wasted ingredients and better-tasting smoothies.'
+        title: 'The guardian of the standard',
+        description: 'Your prep lists are perfect and your counter is spotless. You ensure that whether a guest visits on Monday or Friday, their smoothie tastes exactly the same.'
       },
       {
-        title: 'Training Mastery',
-        description: 'You excel at taking a "green" employee and getting them solo on the line because your instructions are backed by data and the manual. You leave no room for "guessing."'
+        title: 'Training mastery',
+        description: 'You\'re the best at taking a green hire and getting them solo on the line. Your instructions are backed by the manual and data, leaving no room for guessing.'
       },
       {
-        title: 'Integrity of the Blend',
-        description: 'You know the products better than anyone. You ensure that the "Blend Promise" is always met because you communicate the exact standards required for every smoothie and food item.'
+        title: 'Integrity of the blend',
+        description: 'You know the products better than anyone. You ensure the blend promise is met because you communicate the exact measurements required for every recipe.'
       }
     ],
     blindSpotsDetailed: [
       {
-        title: 'The "Over-Communication" Trap',
-        description: 'During a rush, a 3-minute explanation of a 10-second task can frustrate the team. You might prioritize "explaining the process" over "giving the answer."'
+        title: 'The over-communication trap',
+        description: 'During a rush, a three-minute explanation for a ten-second task will frustrate a fast-moving team. Learn to give the quick fix now and the deep dive in a slow moment.'
       },
       {
-        title: 'The "Nagging" Label',
-        description: 'Cheerleader communicators might feel you are constantly critiquing them on minor details, which can drain their energy and make them feel like they can\'t do anything right.'
+        title: 'The nagging label',
+        description: 'Enthusiastic communicators might feel you\'re constantly critiquing minor details. This can drain their energy and make them feel like they can\'t do anything right.'
       },
       {
-        title: 'Telling over Showing',
-        description: 'You might rely so much on instructions and manuals that you forget to model the behavior. Some team members need to see the care, not just hear the rules again.'
+        title: 'Telling over showing',
+        description: 'You might rely so much on the manual that you forget to jump in and model the behavior. Some team members need to see the care behind the task, not just hear the rule.'
       }
     ],
     color: STYLE_COLORS.precise

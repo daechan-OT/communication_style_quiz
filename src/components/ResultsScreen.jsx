@@ -109,8 +109,8 @@ export default function ResultsScreen({ resultsData, onRestart }) {
                   {style.subtitle}
                 </p>
 
-                <div className="mb-4">
-                  <strong className="text-quiz-primary">Focus:</strong> <span className="text-quiz-text/90">{style.focus}</span>
+                <div className="mb-4 text-quiz-text/90">
+                  <strong className="text-quiz-primary">Priority:</strong> {style.priority} <span className="mx-1 text-quiz-text/40">|</span> <strong className="text-quiz-primary">Mantra:</strong> {style.mantra}
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
